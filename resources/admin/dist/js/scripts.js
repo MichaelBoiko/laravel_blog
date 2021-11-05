@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(function (){
 	$("#example1").DataTable();
 	$(".select2").select2();
     //Date picker
