@@ -28,7 +28,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="form-group">
-                <a href="create.html" class="btn btn-success">Добавить</a>
+                <a href="{{ url('admin/categories/create') }}" class="btn btn-success">Добавить</a>
               </div>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -39,17 +39,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Обучение
-                  </td>
-                  <td><a href="edit.html" class="fa fa-pencil"></a> <a href="#" class="fa fa-remove"></a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Работа</td>
-                  <td><a href="edit.html" class="fa fa-pencil"></a> <a href="#" class="fa fa-remove"></a></td>
-                </tr>
+                @foreach($categories as $category)
+
+                  <tr>
+                    <td>{{ $category->id }}</td>
+                    <td>{{ $category->title }}</td>
+                    <td><a href="edit.html" class="fa fa-pencil"></a> <a href="#" class="fa fa-remove"></a></td>
+                  </tr>
+
+                @endforeach
                 </tfoot>
               </table>
             </div>

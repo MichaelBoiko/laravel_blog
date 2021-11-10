@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use Collective\Html\Eloquent\FormAccessible;
 
 class CategoriesController extends Controller
 {
@@ -14,7 +16,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $categories = Category::all();
+
+        return view('admin.categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -24,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,7 +39,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd(1);
     }
 
     /**
