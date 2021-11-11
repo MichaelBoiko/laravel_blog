@@ -16,7 +16,7 @@
 
       <!-- Default box -->
       <div class="box">
-      {!! Form::open(['action' => 'App\Http\Controllers\Admin\CategoriesController@store']) !!}
+      {!! Form::open(['route' => 'categories.store']) !!}
         <div class="box-header with-border">
           <h3 class="box-title">Добавляем категорию</h3>
           @include('admin.errors')
@@ -31,7 +31,7 @@
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-default">Назад</button>
+        <a href="{{ url()->previous() }}" class="btn btn-default">Назад</a>
           <button class="btn btn-success pull-right">Добавить</button>
         </div>
         <!-- /.box-footer-->

@@ -43,20 +43,9 @@ class CategoriesController extends Controller
             'title' => 'required'
         ]);
         Category::create($request->all());
-        return redirect('admin/categories'); 
+        return redirect()->route('categories.index'); 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -83,7 +72,7 @@ class CategoriesController extends Controller
         ]);
         $category = Category::find($id);
         $category->update($request->all());
-        return redirect('admin/categories');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -95,6 +84,6 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         Category::find($id)->delete();
-        return redirect('admin/categories');
+        return redirect()->route('categories.index');
     }
 }

@@ -21,7 +21,7 @@
           @include('admin.errors')
         </div>
         <div class="box-body">
-        {{Form::open(['action'=>['App\Http\Controllers\Admin\CategoriesController@update', $category->id], 'method'=>'put'])}}
+        {{Form::open(['route'=>['categories.update', $category->id], 'method'=>'put'])}}
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Название</label>
@@ -31,7 +31,7 @@
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-default">Назад</button>
+          <a href="{{ url()->previous() }}" class="btn btn-default">Назад</a>
           <button class="btn btn-warning pull-right">Изменить</button>
         </div>
         <!-- /.box-footer-->
