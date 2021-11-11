@@ -39,7 +39,11 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        dd(1);
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+        Category::create($request->all());
+        return redirect('admin/categories'); 
     }
 
     /**
@@ -61,7 +65,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     /**
@@ -73,7 +78,12 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+        $category = Category::find($id);
+        $category->update($request->all());
+        return redirect('admin/categories');
     }
 
     /**
@@ -84,6 +94,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect('admin/categories');
     }
 }

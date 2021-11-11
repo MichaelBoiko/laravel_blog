@@ -16,32 +16,32 @@
 
       <!-- Default box -->
       <div class="box">
-      {!! Form::open(['action' => 'App\Http\Controllers\Admin\CategoriesController@store']) !!}
         <div class="box-header with-border">
-          <h3 class="box-title">Добавляем категорию</h3>
+          <h3 class="box-title">Меняем категорию</h3>
           @include('admin.errors')
         </div>
         <div class="box-body">
+        {{Form::open(['action'=>['App\Http\Controllers\Admin\CategoriesController@update', $category->id], 'method'=>'put'])}}
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Название</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title">
+              <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="" value="{{$category->title}}">
             </div>
         </div>
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
           <button class="btn btn-default">Назад</button>
-          <button class="btn btn-success pull-right">Добавить</button>
+          <button class="btn btn-warning pull-right">Изменить</button>
         </div>
         <!-- /.box-footer-->
-        {!! Form::close() !!}
+        {{Form::close()}}
       </div>
       <!-- /.box -->
 
     </section>
     <!-- /.content -->
   </div>
-
   <!-- /.content-wrapper -->
+
 @endsection

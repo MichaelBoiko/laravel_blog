@@ -44,7 +44,14 @@
                   <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->title }}</td>
-                    <td><a href="edit.html" class="fa fa-pencil"></a> <a href="#" class="fa fa-remove"></a></td>
+                    <td>
+                      <a href="{{ url('admin/categories/edit', $category->id) }}" class="fa fa-pencil"></a>
+                      {{Form::open(['action'=>['App\Http\Controllers\Admin\CategoriesController@destroy', $category->id], 'method'=>'delete'])}}
+                        <button onclick="return confirm('Вы уверены?')" type="submit" class="delete">
+                          <a class="fa fa-remove"></a>
+                        </button>
+                      {{Form::close()}}
+                    </td>
                   </tr>
 
                 @endforeach

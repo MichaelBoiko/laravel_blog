@@ -20,6 +20,10 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', [ DashboardController::class, 'index' ]);
+
 Route::get('/admin/categories', [ CategoriesController::class, 'index' ]);
 Route::get('/admin/categories/create', [ CategoriesController::class, 'create' ]);
 Route::post('/admin/categories/create', [ CategoriesController::class, 'store' ]);
+Route::get('/admin/categories/edit/{id}', [ CategoriesController::class, 'edit' ]);
+Route::put('/admin/categories/edit/{id}', [ CategoriesController::class, 'update' ]);
+Route::delete('/admin/categories/{id}', [ CategoriesController::class, 'destroy' ]);
